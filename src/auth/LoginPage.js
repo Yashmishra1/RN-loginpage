@@ -12,6 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Input from '../components/Input';
 
 const Login = ({navigation}) => {
+  const [myText, setMyText] = React.useState('Original Text')
 
   return (
     <View style={styles.container}>
@@ -19,16 +20,16 @@ const Login = ({navigation}) => {
       <View style={styles.top}>
         <Text style={styles.topText}>Sign In</Text>
         <View style={styles.box}>
-          <Input placeholder='Email address' />
+          <Input placeholder='Email address'keyboardType={'email-address'} placeholderTextColor={'dodgerblue'} />
           <Image
             style={styles.img}
             source={require('../assets/images/email.png')}
           />
         </View>
         <View style={styles.box}>
-          <Input placeholder={'Password'} />
+          <Input placeholder={'Password'} secureTextEntry={true} placeholderTextColor={'orange'}/>
             <Image
-              secureTextEntry={false}
+              secureTextEntry={true}
               style={styles.img1}
               source={require('../assets/images/ic_eye.png')}
             />

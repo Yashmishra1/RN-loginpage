@@ -1,10 +1,16 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
-const Input = ({placeholder}) => {
+const Input = ({placeholder, secureTextEntry,keyboardType,placeholderTextColor}) => {
   return (
     <View style={Styles.box}>
-      <TextInput style={Styles.email} placeholder={placeholder} />
+      <TextInput
+        style={Styles.email}
+        placeholder={placeholder}
+        secureTextEntry={secureTextEntry}
+        keyboardType={keyboardType}
+        placeholderTextColor={placeholderTextColor}
+      />
     </View>
   );
 };
