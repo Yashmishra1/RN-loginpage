@@ -1,12 +1,12 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Login from './LoginPage';
-import Forget from './ForgotPass';
-import InBtn from './SignIn';
-import New from './SignUp';
-import Tid from './Touch';
-import Fid from './Face';
+import Login from '../auth/LoginPage';
+import Forget from '../navigation/ForgotPassword';
+import InBtn from '../navigation/SignIn';
+import New from '../navigation/SignUp';
+import Tid from '../navigation/TouchId';
+import Fid from '../navigation/FaceId';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
