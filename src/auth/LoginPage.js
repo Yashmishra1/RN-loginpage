@@ -3,141 +3,144 @@ import {
   StyleSheet,
   View,
   Text,
-  Alert,
   Image,
   Pressable,
   Linking,
+  Keyboard,
+  TouchableWithoutFeedback,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Input from '../components/Input';
 
 const Login = ({navigation}) => {
-  const [myText, setMyText] = React.useState('Original Text')
-
   return (
-    <View style={styles.container}>
-      {/* First View  */}
-      <View style={styles.top}>
-        <Text style={styles.topText}>Sign In</Text>
-        <View style={styles.box}>
-          <Input placeholder='Email address'keyboardType={'email-address'} placeholderTextColor={'dodgerblue'} />
-          <Image
-            style={styles.img}
-            source={require('../assets/images/email.png')}
-          />
-        </View>
-        <View style={styles.box}>
-          <Input placeholder={'Password'} secureTextEntry={true} placeholderTextColor={'orange'}/>
-            <Image
-              secureTextEntry={true}
-              style={styles.img1}
-              source={require('../assets/images/ic_eye.png')}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{flex: 1}}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <View style={styles.top}>
+            <Text style={styles.topText}>Sign In</Text>
+            <Input
+              placeholder="Email address"
+              keyboardType={'email-address'}
+              isIcon={require('../assets/images/email.png')}
             />
-        </View>
-        <Pressable
-          style={styles.forgotbtn}
-          onPress={() => navigation.navigate('Change')}>
-          <Text>Forgot your password?</Text>
-        </Pressable>
-      </View>
-      {/* First  end View */}
-      {/* second View  */}
-      <View style={styles.middle}>
-        <LinearGradient
-          start={{x: 0, y: 0}}
-          style={styles.box1}
-          end={{x: 1, y: 0}}
-          colors={['#f15b3a', '#ffa015']}>
-          <Pressable onPress={() => navigation.navigate('Sign')}>
-            <Text style={styles.signText}>Sign In</Text>
-          </Pressable>
-        </LinearGradient>
+            <Input
+              placeholder="Password"
+              keyboardType={'email-address'}
+              isIcon={require('../assets/images/ic_eye.png')}
+            />
+            <Pressable
+              style={styles.forgotbtn}
+              onPress={() => navigation.navigate('Change')}>
+              <Text>Forgot your password?</Text>
+            </Pressable>
+          </View>
+          {/* First  end View */}
+          {/* second View  */}
+          <View style={styles.middle}>
+            <LinearGradient
+              start={{x: 0, y: 0}}
+              style={styles.box1}
+              end={{x: 1, y: 0}}
+              colors={['#f15b3a', '#ffa015']}>
+              <Pressable onPress={() => navigation.navigate('Sign')}>
+                <Text style={styles.signText}>Sign In</Text>
+              </Pressable>
+            </LinearGradient>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 14, color: '#666666'}}>
-            Don't have an account?{' '}
-          </Text>
-          <Pressable onPress={() => navigation.navigate('Create')}>
-            <Text
+            <View
               style={{
-                color: '#ffa015',
-                fontSize: 16,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-              Sign up
-            </Text>
-          </Pressable>
-        </View>
+              <Text style={{fontSize: 14, color: '#666666'}}>
+                Don't have an account?{' '}
+              </Text>
+              <Pressable onPress={() => navigation.navigate('Create')}>
+                <Text
+                  style={{
+                    color: '#ffa015',
+                    fontSize: 16,
+                  }}>
+                  Sign up
+                </Text>
+              </Pressable>
+            </View>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-          }}>
-          <View style={styles.line} />
-          <Text
-            style={{
-              fontSize: 13,
-              color: '#8e8e93',
-            }}>
-            Or sign in with
-          </Text>
-          <View style={styles.line} />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-          }}>
-          <Pressable
-            style={styles.Facebookbtn}
-            onPress={() => Linking.openURL('https://www.facebook.com/login/')}>
-            <Image
-              style={{height: 14.7, width: 7.8, marginRight: 7.5}}
-              source={require('../assets/images/facebook.png')}
-            />
-            <Text style={{color: '#ffffff', fontSize: 13}}>Facebook</Text>
-          </Pressable>
-          <Pressable
-            style={styles.googlebtn}
-            onPress={() =>
-              Linking.openURL(
-                'https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin',
-              )
-            }>
-            <Image
+            <View
               style={{
-                height: 12.2,
-                width: 12,
-                marginRight: 11.8,
-              }}
-              source={require('../assets/images/google.png')}
-            />
-            <Text style={{color: '#ffffff', fontSize: 13}}>Google</Text>
-          </Pressable>
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+              }}>
+              <View style={styles.line} />
+              <Text
+                style={{
+                  fontSize: 13,
+                  color: '#8e8e93',
+                }}>
+                Or sign in with
+              </Text>
+              <View style={styles.line} />
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+              }}>
+              <Pressable
+                style={styles.Facebookbtn}
+                onPress={() =>
+                  Linking.openURL('https://www.facebook.com/login/')
+                }>
+                <Image
+                  style={{height: 14.7, width: 7.8, marginRight: 7.5}}
+                  source={require('../assets/images/facebook.png')}
+                />
+                <Text style={{color: '#ffffff', fontSize: 13}}>Facebook</Text>
+              </Pressable>
+              <Pressable
+                style={styles.googlebtn}
+                onPress={() =>
+                  Linking.openURL(
+                    'https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin',
+                  )
+                }>
+                <Image
+                  style={{
+                    height: 12.2,
+                    width: 12,
+                    marginRight: 11.8,
+                  }}
+                  source={require('../assets/images/google.png')}
+                />
+                <Text style={{color: '#ffffff', fontSize: 13}}>Google</Text>
+              </Pressable>
+            </View>
+          </View>
+          {/* end Second View  */}
+          {/* {Last view } */}
+          <View style={styles.bottom}>
+            <Pressable
+              style={styles.fingerbtn}
+              onPress={() => navigation.navigate('Touch')}>
+              <Image source={require('../assets/images/ic_fingerprint.png')} />
+              <Text style={{fontSize: 13}}> Sign In Using Touch ID</Text>
+            </Pressable>
+            <Pressable
+              style={styles.facebtn}
+              onPress={() => navigation.navigate('Face')}>
+              <Image source={require('../assets/images/faceid.png')} />
+              <Text style={{fontSize: 13}}> Sign In Using Face ID</Text>
+            </Pressable>
+          </View>
         </View>
-      </View>
-      {/* end Second View  */}
-      {/* {Last view } */}
-      <View style={styles.bottom}>
-        <Pressable
-          style={styles.fingerbtn}
-          onPress={() => navigation.navigate('Touch')}>
-          <Image source={require('../assets/images/ic_fingerprint.png')} />
-          <Text style={{fontSize: 13}}> Sign In Using Touch ID</Text>
-        </Pressable>
-        <Pressable
-          style={styles.facebtn}
-          onPress={() => navigation.navigate('Face')}>
-          <Image source={require('../assets/images/faceid.png')} />
-          <Text style={{fontSize: 13}}> Sign In Using Face ID</Text>
-        </Pressable>
-      </View>
-    </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
 
     // <end last view
   );
@@ -147,7 +150,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     paddingHorizontal: 35,
-    padding: '20%',
+    padding:"10%",
     justifyContent: 'space-around',
   },
   topText: {
