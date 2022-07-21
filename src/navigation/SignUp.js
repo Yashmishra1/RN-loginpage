@@ -1,9 +1,15 @@
-import React from 'react';
-import {Text, View, StyleSheet,Pressable} from 'react-native';
+import React, {useLayoutEffect} from 'react';
+import {Text, View, StyleSheet, Pressable, Button} from 'react-native';
 import Input from '../components/Input';
 import LinearGradient from 'react-native-linear-gradient';
 
-const SignUp = () => {
+
+const SignUp = ({navigation,onPress}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => <Button title={'ample'} onPress={() => navigation.goBack()} />,
+    });
+  }, []);
   return (
     <View style={styles.container}>
       <Text style={styles.topText}>Register Now</Text>
@@ -49,22 +55,18 @@ const SignUp = () => {
       <Text style={styles.bottomtext}>
         By continuing Sign up you agree to the Terms & Conditions
       </Text>
-      <View 
-              style={styles.bottomBtn}>
-              <Text style={styles.text1}>
-               Already have an account?{' '}
-              </Text>
-              <Pressable>
-                <Text
-                  style={{
-                    color: '#ffa015',
-                    fontSize: 16,
-                  }}>
-                  Sign up
-                </Text>
-                </Pressable>
-            </View>
-
+      <View style={styles.bottomBtn}>
+        <Text style={styles.text1}>Already have an account? </Text>
+        <Pressable>
+          <Text
+            style={{
+              color: '#ffa015',
+              fontSize: 16,
+            }}>
+            Sign up
+          </Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -75,14 +77,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35,
     padding: '10%',
   },
-  Top:
-  {
-    justifyContent:"space-evenly",
+  Top: {
+    justifyContent: 'space-evenly',
   },
-  middle:
-  {
-    flex:1,
-    justifyContent:"space-around"
+  middle: {
+    flex: 1,
+    justifyContent: 'space-around',
   },
   topText: {
     fontSize: 22,
@@ -106,22 +106,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bottomtext: {
-    flex:1,
-    color:"grey",
-    justifyContent:"space-around",
+    flex: 1,
+    color: 'grey',
+    justifyContent: 'space-around',
     textAlign: 'center',
   },
-  text1:
-  {
-    fontSize:14,
-    color:"black",
+  text1: {
+    fontSize: 14,
+    color: 'black',
   },
-  bottomBtn:
-  {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex:1,
-  }
+  bottomBtn: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+  },
 });
 export default SignUp;

@@ -1,4 +1,12 @@
-import {Text, View, Image, StyleSheet, TextInput, alert,Pressable,Alert} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  TextInput,
+  Pressable,
+  Alert,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import React, {Component} from 'react';
 
@@ -27,15 +35,14 @@ const Forgetpassword = () => {
           <TextInput
             style={styles.placeEmail}
             placeholder="Enter Your email address"></TextInput>
-            <Image
-                style={styles.img}
-                source={require('../assets/images/email.png')}
-              />
+          <Image
+            style={styles.img}
+            source={require('../assets/images/email.png')}
+          />
         </View>
-        
       </View>
       <View style={styles.bottom}>
-        <LinearGradient 
+        <LinearGradient
           start={{x: 0, y: 0}}
           style={styles.box1}
           end={{x: 1, y: 0}}
@@ -55,7 +62,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35,
     alignItems: 'center',
     backgroundColor: 'white',
-    justifyContent:"space-evenly"
+    justifyContent: 'space-evenly',
   },
   Top: {
     flex: 1,
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     alignItems: 'center',
-    justifyContent:"space-around"
+    justifyContent: 'space-around',
   },
   text1: {
     textAlign: 'center',
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 22,
     color: '#333333',
-    justifyContent:"space-evenly"
+    justifyContent: 'space-evenly',
   },
   Textbox: {
     textAlign: 'center',
@@ -83,7 +90,7 @@ const styles = StyleSheet.create({
   middle: {
     flex: 1,
     alignItems: 'center',
-    justifyContent:"space-evenly",
+    justifyContent: 'space-evenly',
   },
   backText: {
     flexDirection: 'row',
@@ -94,7 +101,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 22,
     height: 44,
-    width:327,
+    width: 327,
   },
   placeEmail: {
     color: '#9B9B9B',
@@ -103,33 +110,30 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: 187,
   },
-  bottom:
-  {
-    flex:1,
-    justifyContent:"space-between",
-    flexDirection:"row",
+  bottom: {
+    flex: 1,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
-  box1:
-  {
-    width:311,
-    height:44,
-    borderRadius:22,
-    alignItems:"center",
-    justifyContent:"center",
+  box1: {
+    width: 311,
+    height: 44,
+    borderRadius: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  signText:
-  {
-  fontSize: 16,
-  color: 'white',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign:"center",
-},
-img: {
-  flexDirection: 'row',
-  justifyContent: 'space-around',
-  width: 21,
-  height: 13.8,
-},
+  signText: {
+    fontSize: 16,
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  img: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: 21,
+    height: 13.8,
+  },
 });
 export default Forgetpassword;

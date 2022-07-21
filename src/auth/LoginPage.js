@@ -10,14 +10,17 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Platform,
+  ScrollView
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Input from '../components/Input';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}) => {
-  const[name,setName]= useState('')
+  // const[name,setName]= useState('')
+  const[refreshing,setRefreshing] = useState('')
   return (
+    
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={{flex: 1}}>
@@ -86,7 +89,7 @@ const Login = ({navigation}) => {
                   fontSize: 13,
                   color: '#8e8e93',
                 }}>
-                Or sign in with
+                {'Or sign in with'}
               </Text>
               <View style={styles.line} />
             </View>
