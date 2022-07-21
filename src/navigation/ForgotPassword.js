@@ -1,9 +1,8 @@
 import {Text, View, Image, StyleSheet, TextInput, alert,Pressable,Alert} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import React, {Component} from 'react';
-import { sign } from 'crypto';
 
-const Forget = () => {
+const Forgetpassword = () => {
   const login = () => {
     Alert.alert('Changed Password Succesfully');
   };
@@ -133,4 +132,4 @@ img: {
   height: 13.8,
 },
 });
-export default Forget;
+export default Forgetpassword;

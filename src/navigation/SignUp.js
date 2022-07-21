@@ -1,40 +1,42 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet,Pressable} from 'react-native';
 import Input from '../components/Input';
 import LinearGradient from 'react-native-linear-gradient';
 
-const New = () => {
+const SignUp = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.topText}>Register Now</Text>
-      <Input
-        placeholder="Full name"
-        isIcon={require('../assets/images/ic_user.png')}
-      />
-      <Input
-        placeholder="Email address"
-        keyboardType={'email-address'}
-        isIcon={require('../assets/images/email.png')}
-      />
-      <Input
-        placeholder="Phone number"
-        keyboardType={'phone-pad'}
-        isIcon={require('../assets/images/ic_call.png')}
-      />
-      <Input
-        placeholder="Date of birth"
-        keyboardType={'phone-pad'}
-        isIcon={require('../assets/images/ic_calendar.png')}
-      />
-      <Input
-        placeholder="Password"
-        isIcon={require('../assets/images/ic_eye.png')}
-      />
-      <Input
-        placeholder="confirm Password"
-        isIcon={require('../assets/images/ic_eye.png')}
-      />
-       <View>
+      <View style={styles.Top}>
+        <Input
+          placeholder="Full name"
+          isIcon={require('../assets/images/ic_user.png')}
+        />
+        <Input
+          placeholder="Email address"
+          keyboardType={'email-address'}
+          isIcon={require('../assets/images/email.png')}
+        />
+        <Input
+          placeholder="Phone number"
+          keyboardType={'phone-pad'}
+          isIcon={require('../assets/images/ic_call.png')}
+        />
+        <Input
+          placeholder="Date of birth"
+          keyboardType={'phone-pad'}
+          isIcon={require('../assets/images/ic_calendar.png')}
+        />
+        <Input
+          placeholder="Password"
+          isIcon={require('../assets/images/ic_eye.png')}
+        />
+        <Input
+          placeholder="confirm Password"
+          isIcon={require('../assets/images/ic_eye.png')}
+        />
+      </View>
+      <View style={styles.middle}>
         <LinearGradient
           start={{x: 0, y: 0}}
           style={styles.box1}
@@ -47,6 +49,22 @@ const New = () => {
       <Text style={styles.bottomtext}>
         By continuing Sign up you agree to the Terms & Conditions
       </Text>
+      <View 
+              style={styles.bottomBtn}>
+              <Text style={styles.text1}>
+               Already have an account?{' '}
+              </Text>
+              <Pressable>
+                <Text
+                  style={{
+                    color: '#ffa015',
+                    fontSize: 16,
+                  }}>
+                  Sign up
+                </Text>
+                </Pressable>
+            </View>
+
     </View>
   );
 };
@@ -56,7 +74,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'White',
     paddingHorizontal: 35,
     padding: '10%',
-    justifyContent: 'space-evenly',
+  },
+  Top:
+  {
+    justifyContent:"space-evenly",
+  },
+  middle:
+  {
+    flex:1,
+    justifyContent:"space-around"
   },
   topText: {
     fontSize: 22,
@@ -65,9 +91,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   box1: {
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    justifyContent: 'center',
     width: 311,
     height: 44,
     borderColor: 'orange',
@@ -81,8 +106,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bottomtext: {
-    justifyContent: 'space-between',
+    flex:1,
+    color:"grey",
+    justifyContent:"space-around",
     textAlign: 'center',
   },
+  text1:
+  {
+    fontSize:14,
+    color:"black",
+  },
+  bottomBtn:
+  {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex:1,
+  }
 });
-export default New;
+export default SignUp;

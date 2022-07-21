@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
 
-const InBtn = () =>
+const SignIn = () =>
 {
   return(
     <View>
@@ -11,5 +11,5 @@ const InBtn = () =>
   )
  
 }
-export default InBtn;
+export default SignIn;
 

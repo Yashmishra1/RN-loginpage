@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -13,8 +13,10 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Input from '../components/Input';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}) => {
+  const[name,setName]= useState('')
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -27,6 +29,7 @@ const Login = ({navigation}) => {
               placeholder="Email address"
               keyboardType={'email-address'}
               isIcon={require('../assets/images/email.png')}
+              onChangeText={(value) => setName(value)}
             />
             <Input
               placeholder="Password"
@@ -35,7 +38,7 @@ const Login = ({navigation}) => {
             />
             <Pressable
               style={styles.forgotbtn}
-              onPress={() => navigation.navigate('Change')}>
+              onPress={() => navigation.navigate('ForgetPassword')}>
               <Text>Forgot your password?</Text>
             </Pressable>
           </View>
@@ -47,7 +50,7 @@ const Login = ({navigation}) => {
               style={styles.box1}
               end={{x: 1, y: 0}}
               colors={['#f15b3a', '#ffa015']}>
-              <Pressable onPress={() => navigation.navigate('Sign')}>
+              <Pressable onPress={() => navigation.navigate('Signin')}>
                 <Text style={styles.signText}>Sign In</Text>
               </Pressable>
             </LinearGradient>
@@ -61,7 +64,7 @@ const Login = ({navigation}) => {
               <Text style={{fontSize: 14, color: '#666666'}}>
                 Don't have an account?{' '}
               </Text>
-              <Pressable onPress={() => navigation.navigate('Create')}>
+              <Pressable onPress={() => navigation.navigate('SignUp')}>
                 <Text
                   style={{
                     color: '#ffa015',
