@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
 
-const Fid= () =>
+const Faceid= () =>
 {
     return (
       <View>
@@ -9,4 +9,4 @@ const Fid= () =>
       </View>
     )
 }
-export default Fid;
+export default Faceid;

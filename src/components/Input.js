@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TextInput, StyleSheet,Image} from 'react-native';
 
-const Input = ({placeholder, secureTextEntry,keyboardType,isIcon}) => {
+const Input = ({placeholder, secureTextEntry,keyboardType,isIcon,onChangeText}) => {
   return (
     <View style={Styles.box}>
       <TextInput
@@ -9,11 +9,12 @@ const Input = ({placeholder, secureTextEntry,keyboardType,isIcon}) => {
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
+        onChangeText={onChangeText}
       />
          <Image
             style={Styles.img}
             source={isIcon}
-            resizeMode={'stretch'}
+            resizeMode={'contain'}
           />
     </View>
   );
@@ -38,8 +39,8 @@ const Styles = StyleSheet.create({
   img: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: 18,
-    height: 18,
+    width: 18.3,
+    height: 19.5,
   },
   
 });

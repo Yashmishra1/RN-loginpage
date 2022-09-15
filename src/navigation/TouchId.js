@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import React from 'react'
 
-const Tid = () =>
+const Touchid = () =>
  {
     return (
       <View>
@@ -10,4 +10,4 @@ const Tid = () =>
     )
   }
 
-export default Tid;
+export default Touchid;
